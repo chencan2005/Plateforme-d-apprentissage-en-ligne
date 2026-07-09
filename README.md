@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 智慧教学平台（Online Learning Platform）
 
 前后端分离的在线学习演示项目：学生选课学习、教师课程/作业管理、公告、AI 问答与知识点总结。
@@ -108,3 +109,4 @@ project/
 ├── vue3/frond-end/           # Vue3 前端
 └── README.md
 ```
+
