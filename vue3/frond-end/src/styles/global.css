@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap');
+
+:root {
+  --font-display: 'Outfit', 'Noto Sans SC', sans-serif;
+  --font-body: 'Noto Sans SC', 'Outfit', sans-serif;
+
+  --primary-color: #0f766e;
+  --primary-light: #f0fdfa;
+  --primary-dark: #0d5f59;
+  --primary-soft: #ccfbf1;
+  --accent-color: #ea580c;
+  --danger-color: #dc2626;
+  --success-color: #059669;
+  --warning-color: #d97706;
+
+  --text-primary: #0f172a;
+  --text-regular: #334155;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  --border-color: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --bg-page: #f4f7f6;
+  --bg-card: #ffffff;
+  --bg-muted: #f8fafc;
+  --sidebar-bg: #0b3d3a;
+  --sidebar-active: #14b8a6;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.08);
+
+  --el-color-primary: #0f766e;
+  --el-color-primary-light-3: #2dd4bf;
+  --el-color-primary-light-5: #5eead4;
+  --el-color-primary-light-7: #99f6e4;
+  --el-color-primary-light-9: #f0fdfa;
+  --el-color-primary-dark-2: #0d5f59;
+  --el-border-radius-base: 10px;
+  --el-font-family: var(--font-body);
+}
+
+html,
+body,
+#app {
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+h1, h2, h3, .page-title, .auth-title, .logo {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.page-container {
+  padding: 24px 28px 40px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  animation: page-enter 0.35s ease;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), #2dd4bf 60%, transparent);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.page-header h2,
+.page-card > h2,
+.page-card > h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.page-card > h3 {
+  font-size: 18px;
+}
+
+.section-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.back-link:hover {
+  color: var(--primary-color);
+}
+
+.empty-tip {
+  text-align: center;
+  padding: 56px 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  background:
+    radial-gradient(circle at top, rgba(15, 118, 110, 0.06), transparent 55%),
+    var(--bg-muted);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-color);
+}
+
+/* 课程卡片 */
+.course-card {
+  margin-bottom: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: #99f6e4;
+}
+
+.course-card .el-card__body {
+  padding: 0;
+}
+
+.course-card-cover {
+  height: 88px;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.92), rgba(45, 212, 191, 0.75)),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.35), transparent 45%);
+  position: relative;
+}
+
+.course-card-cover::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.18), transparent);
+}
+
+.course-card-inner {
+  padding: 18px 18px 20px;
+}
+
+.course-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.4;
+  font-family: var(--font-display);
+}
+
+.course-intro {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.6;
+  min-height: 42px;
+}
+
+.course-teacher {
+  font-size: 12px;
+  color: var(--text-regular);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 表格 */
+.page-card .el-table {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  --el-table-border-color: var(--border-color);
+  --el-table-header-bg-color: #f8fafc;
+}
+
+.page-card .el-table th.el-table__cell {
+  background: #f8fafc !important;
+  color: var(--text-regular);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.page-card .el-table td.el-table__cell {
+  color: var(--text-regular);
+}
+
+/* Tabs */
+.page-card .el-tabs__header {
+  margin-bottom: 22px;
+}
+
+.page-card .el-tabs__item {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.page-card .el-tabs__item.is-active {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.page-card .el-tabs__active-bar {
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* 按钮微调 */
+.el-button--primary {
+  --el-button-bg-color: var(--primary-color);
+  --el-button-border-color: var(--primary-color);
+  --el-button-hover-bg-color: var(--primary-dark);
+  --el-button-hover-border-color: var(--primary-dark);
+}
+
+.el-button {
+  font-weight: 500;
+}
+
+/* 状态徽章 */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.success {
+  background: #ecfdf5;
+  color: var(--success-color);
+}
+
+.status-badge.warning {
+  background: #fff7ed;
+  color: var(--warning-color);
+}
+
+.status-badge.info {
+  background: #f1f5f9;
+  color: var(--text-secondary);
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 16px 14px 28px;
+  }
+
+  .page-card {
+    padding: 18px 16px;
+  }
+
+  .page-header h2 {
+    font-size: 18px;
+  }
+}
